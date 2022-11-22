@@ -20,19 +20,19 @@ cat << EOF >> auth_playbook.yml
   become: false
   module_defaults:
     - redhat.openshift.openshift_auth:
-        host: "{{ role_openshift_upgrade_check_api }}"
-        validate_certs: "{{ role_openshift_upgrade_check_validate_certs }}"
+        host: "{{ ocp_auth_api }}"
+        validate_certs: "{{ ocp_auth_validate_certs }}"
     - kubernetes.core.k8s_info:
-        host: "{{ role_openshift_upgrade_check_api }}"
-        validate_certs: "{{ role_openshift_upgrade_check_validate_certs }}"
+        host: "{{ ocp_auth_api }}"
+        validate_certs: "{{ ocp_auth_validate_certs }}"
         api_key: "{{ ocp_auth_api_key }}"
     - kubernetes.core.k8s:
-        host: "{{ role_openshift_upgrade_check_api }}"
-        validate_certs: "{{ role_openshift_upgrade_check_validate_certs }}"
+        host: "{{ ocp_auth_api }}"
+        validate_certs: "{{ ocp_auth_validate_certs }}"
         api_key: "{{ ocp_auth_api_key }}"
     - kubernetes.core.k8s_exec:
-        host: "{{ role_openshift_upgrade_check_api }}"
-        validate_certs: "{{ role_openshift_upgrade_check_validate_certs }}"
+        host: "{{ ocp_auth_api }}"
+        validate_certs: "{{ ocp_auth_validate_certs }}"
         api_key: "{{ ocp_auth_api_key }}"
   vars:
     ocp_auth_api_key: ""
