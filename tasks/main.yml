@@ -1,0 +1,8 @@
+---
+- name: Get OCP token
+  include_task: get_token.yml
+  when: not ocp_auth_revoke 
+
+- name: Get OCP token
+  include_task: get_token.yml
+  when: ocp_auth_revoke 
